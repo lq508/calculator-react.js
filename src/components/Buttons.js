@@ -9,7 +9,9 @@ const esOperador = (valor) =>{
 
 
 return (
-    <div className={`button-container ${esOperador(props.children) ? "operator" : '' }`.trimEnd()}>
+    <div className={`button-container ${esOperador(props.children) ? "operator" : '' }`.trimEnd()}
+    onClick={() =>props.manageClick(props.children)}
+    >
      {props.children}
      </div>
 

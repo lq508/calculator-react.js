@@ -3,13 +3,26 @@ import Buttons from './components/Buttons';
 import Screen from "./components/Screen";
 import BotonClear from './components/ButtonClear';
 import {useState } from 'react';
+import {evaluate} from "mathjs";
 function App() {
 
   const [input , setInput] = useState("");
 
-  const agregarInput = valor =>{
+  const addInput = valor =>{
     setInput(input + valor);
   };
+
+  const calculateResult = ()=>{
+
+    if(input){
+      setInput(evaluate(input));
+    } else {
+      alert("please send numbers in the calculator to calculate the operation");
+    }
+
+    
+
+  }
 
   return (
     <div className="App">
@@ -22,38 +35,38 @@ function App() {
           input={input}
         />
         <div className="fila">
-        <Buttons> 1 </Buttons>
-        <Buttons> 2 </Buttons>
-        <Buttons> 3 </Buttons>
-            <Buttons> + </Buttons>
+        <Buttons manageClick={addInput}>1</Buttons>
+        <Buttons manageClick={addInput}>2</Buttons>
+        <Buttons manageClick={addInput}>3</Buttons>
+            <Buttons manageClick={addInput}>+</Buttons>
         </div>
         <div className="fila">
-        <Buttons> 4 </Buttons>
-        <Buttons> 5 </Buttons>
-        <Buttons> 6 </Buttons>
-            <Buttons> - </Buttons>
+        <Buttons manageClick={addInput}>4</Buttons>
+        <Buttons manageClick={addInput}>5</Buttons>
+        <Buttons manageClick={addInput}>6</Buttons>
+            <Buttons manageClick={addInput}>-</Buttons>
           
           </ div>
 
         <div className="fila">
-        <Buttons> 7 </Buttons>
-        <Buttons> 8 </Buttons>
-        <Buttons> 9 </Buttons>
-            <Buttons> * </Buttons>
+        <Buttons manageClick={addInput}>7</Buttons>
+        <Buttons manageClick={addInput}>8</Buttons>
+        <Buttons manageClick={addInput}>9</Buttons>
+            <Buttons manageClick={addInput}>*</Buttons>
           </div>      
 
         <div className="fila">
-        <Buttons> = </Buttons>
-        <Buttons> 0 </Buttons>
-        <Buttons> . </Buttons>
-            <Buttons> / </Buttons>
+        <Buttons manageClick={calculateResult}> = </Buttons>
+        <Buttons manageClick={addInput}>0</Buttons>
+        <Buttons manageClick={addInput}>.</Buttons>
+            <Buttons manageClick={addInput}>/</Buttons>
 
        </div>      
 
 
         <div className="fila">
 
-          <BotonClear>
+          <BotonClear Clear={()=>{setInput('')}}>
             Clear
           </BotonClear>
           
