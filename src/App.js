@@ -9,18 +9,59 @@ function App() {
   const [input , setInput] = useState("");
 
   const addInput = valor =>{
-    setInput(input + valor);
+    let confirmation = false;
+
+    let final_caracter = input.charAt(input.length - 1);
+
+    console.log(input.length);
+
+    if(input.length > 0){
+      if(final_caracter == "+" || final_caracter == "-" || final_caracter == "*" || final_caracter == "/"){
+
+        if(valor == "+" || valor == "-" || valor == "*" || valor == "/"){
+
+            confirmation=true;
+
+        }
+
+
+      }
+
+    }
+
+
+    if(confirmation){
+
+      alert(" you not set 2 operators in the calculator");
+
+    } else {
+      setInput(input + valor);
+
+    }
+
+
+
   };
 
   const calculateResult = ()=>{
+    let final_caracter = input.charAt(input.length-1);
+
+
+
 
     if(input){
-      setInput(evaluate(input));
+      if(!isNaN(final_caracter)){
+        setInput(evaluate(input));
+
+      } else {
+        alert(" the operations not finish with operators, this expretions should finish with numbers  ");
+      }
+
     } else {
       alert("please send numbers in the calculator to calculate the operation");
     }
 
-    
+
 
   }
 
@@ -31,7 +72,7 @@ function App() {
 
 
       <div className="content-calculator" >
-        <Screen 
+        <Screen
           input={input}
         />
         <div className="fila">
@@ -45,7 +86,7 @@ function App() {
         <Buttons manageClick={addInput}>5</Buttons>
         <Buttons manageClick={addInput}>6</Buttons>
             <Buttons manageClick={addInput}>-</Buttons>
-          
+
           </ div>
 
         <div className="fila">
@@ -53,7 +94,7 @@ function App() {
         <Buttons manageClick={addInput}>8</Buttons>
         <Buttons manageClick={addInput}>9</Buttons>
             <Buttons manageClick={addInput}>*</Buttons>
-          </div>      
+          </div>
 
         <div className="fila">
         <Buttons manageClick={calculateResult}> = </Buttons>
@@ -61,7 +102,7 @@ function App() {
         <Buttons manageClick={addInput}>.</Buttons>
             <Buttons manageClick={addInput}>/</Buttons>
 
-       </div>      
+       </div>
 
 
         <div className="fila">
@@ -69,14 +110,14 @@ function App() {
           <BotonClear Clear={()=>{setInput('')}}>
             Clear
           </BotonClear>
-          
+
         </div>
 
       </div>
-        
+
     </div>
-    
-    
+
+
 
   );
 }

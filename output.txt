@@ -1,0 +1,8 @@
+total 556K
+drwxrwxr-x 803 dantxd507 dantxd507  32K may  4 22:01 node_modules
+-rw-rw-r--   1 dantxd507 dantxd507    0 may  5 07:38 output.txt
+-rw-rw-r--   1 dantxd507 dantxd507  839 may  4 22:01 package.json
+-rw-rw-r--   1 dantxd507 dantxd507 501K may  4 22:01 package-lock.json
+drwxrwxr-x   2 dantxd507 dantxd507 4,0K abr 29 06:11 public
+-rw-rw-r--   1 dantxd507 dantxd507 3,3K abr 29 06:11 README.md
+drwxrwxr-x   4 dantxd507 dantxd507 4,0K may  2 18:18 src
